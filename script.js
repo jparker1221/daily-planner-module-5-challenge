@@ -3,6 +3,7 @@
 // in the html.
 
 $(document).ready(function () {
+
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
   // local storage. HINT: What does `this` reference in the click listener
@@ -10,18 +11,12 @@ $(document).ready(function () {
   // time-block containing the button that was clicked? How might the id be
   // useful when saving the description in local storage?
 
-  // var saveBtn = document.querySelector(".btn");  
-  // var input = localStorage.getItem(".input");
-
-  // saveBtn.addEventListener("input", function() {
-  //   saveTask()
-  // });
-
-  // function saveTask() {
-  //   localStorage.setItem("input", input)
-  // };
-  $(".saveBtn").on("click", function(){
-    console.log($(this))
+  $(".saveBtn").on("click", function() {
+    var text = $(this).siblings(".description").val();
+    console.log(text);
+    var time = $(this).parent().attr("id").split("-")[1];
+    console.log(time);
+    localStorage.setItem(time, text);
   })
 
   // TODO: Add code to apply the past, present, or future class to each time
@@ -30,7 +25,7 @@ $(document).ready(function () {
   // past, present, and future classes? How can Day.js be used to get the
   // current hour in 24-hour time?
   
-  $(".time-block").each(function(){
+  $(".time-block").each(function() {
     var currentHour = dayjs().hour();
     var timeBlockHour = parseInt($(this).attr("id").split("-")[1]);
 
@@ -50,8 +45,10 @@ $(document).ready(function () {
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
-
-
+  for (i = 9; i < 18; i++) {
+    var saveTask = localStorage.getItem(i);
+    $('#hour').val(saveTask);
+  }
 
   // TODO: Add code to display the current date in the header of the page.
   var currentDay = dayjs().format('dddd, MMM D, YYYY, hh:mm a');
