@@ -10,7 +10,7 @@ N/A
 
 ## Usage
 
-Live URL: 
+Live URL: https://jparker1221.github.io/daily-planner-module-5-challenge/
 
 Screenshot: ![](./assets/screenshot.png)
 
