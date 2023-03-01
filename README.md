@@ -10,9 +10,13 @@ N/A
 
 ## Usage
 
+Live URL: 
+
+Screenshot: ![](./assets/screenshot.png)
 
 ## Credits
 
+N/A
 
 ## License
 
